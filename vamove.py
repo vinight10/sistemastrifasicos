@@ -275,7 +275,8 @@ if st.button('Calcular'):
     plot_corrente(IA, [0.8, 0.4, 0], 'IA')
     plot_corrente(IB, [0.4, 0.8, 0], 'IB')
     plot_corrente(IC, [0, 0.6, 0.8], 'IC')
-    plot_corrente(I_neutro, [0.6, 0.7, 0], 'IN')
+    if I_neutro > 1e-8:
+        plot_corrente(I_neutro, [0.6, 0.7, 0], 'IN')
     
     # Definindo o título
     ax.set_title('Gráfico das Correntes do Circuito')
