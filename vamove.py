@@ -82,14 +82,14 @@ elif 'Não' in zp:
 
 zm = st.radio(
     
-    'Serão consideradas as impedâncias próprias?',
+    'Serão consideradas as impedâncias mútuas?',
     ['Sim ','Não '] ,
     
     )
 if 'Sim ' in zm:
    
     zm_igual = st.radio(
-    'As impedâncias próprias possuem mesmo valor?',
+    'As impedâncias mútuas possuem mesmo valor?',
     ['sim ','não '] ,
     
     )
