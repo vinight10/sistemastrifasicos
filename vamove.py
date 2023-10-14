@@ -25,19 +25,19 @@ tipo_ligacao_gerador = st.radio(
 ''
 ''
 if 'SIM' in tipo_ligacao_gerador:
-    Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ', value=None)
-    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value=None)
-    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value=None)
-    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value=None)
+    Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ', value=220)
+    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value=0)
+    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value=-120)
+    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value=120)
     Vbn_modulo = Van_modulo
     Vcn_modulo = Van_modulo
 elif 'NÃO' in tipo_ligacao_gerador:
-    Van_modulo = st.number_input('Digite o módulo da tensão de fase Van (V): ', value=None)
-    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value=None)
-    Vbn_modulo = st.number_input('Digite o módulo da tensão de fase Vbn (V): ', value=None)
-    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value=None)
-    Vcn_modulo = st.number_input('Digite o módulo da tensão de fase Vcn (V): ', value=None)
-    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value=None)
+    Van_modulo = st.number_input('Digite o módulo da tensão de fase Van (V): ', value=220)
+    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value=0)
+    Vbn_modulo = st.number_input('Digite o módulo da tensão de fase Vbn (V): ', value=220)
+    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value=-120)
+    Vcn_modulo = st.number_input('Digite o módulo da tensão de fase Vcn (V): ', value=220)
+    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value=120)
 ''
 ''
 ''
