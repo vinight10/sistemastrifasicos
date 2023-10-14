@@ -33,11 +33,11 @@ if 'SIM' in tipo_ligacao_gerador:
     Vbn_modulo = Van_modulo
     Vcn_modulo = Van_modulo
 elif 'NÃO' in tipo_ligacao_gerador:
-    Van_modulo = st.number_input('Digite o módulo da tensão de fase Van (V): ', value=220)
+    Van_modulo = st.number_input('Digite o módulo da tensão de fase Van (V): ', value=220.125)
     Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value=0)
-    Vbn_modulo = st.number_input('Digite o módulo da tensão de fase Vbn (V): ', value=250)
+    Vbn_modulo = st.number_input('Digite o módulo da tensão de fase Vbn (V): ', value=250.256)
     Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value=-120)
-    Vcn_modulo = st.number_input('Digite o módulo da tensão de fase Vcn (V): ', value=230)
+    Vcn_modulo = st.number_input('Digite o módulo da tensão de fase Vcn (V): ', value=230.555)
     Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value=120)
 ''
 ''
