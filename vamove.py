@@ -26,10 +26,10 @@ tipo_ligacao_gerador = st.radio(
 ''
 '*** Lembre de separar por ponto e não virgula!!!'
 if 'SIM' in tipo_ligacao_gerador:
-    Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ')
-    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ')
-    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ')
-    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ')
+    Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ', value = 7967.433)
+    Van_angle = st.number_input('Digite o ângulo da tensão de fase Van (graus): ', value = 0.00)
+    Vbn_angle = st.number_input('Digite o ângulo da tensão de fase Vbn (graus): ', value = -120.00)
+    Vcn_angle = st.number_input('Digite o ângulo da tensão de fase Vcn (graus): ', value = 120.00)
     Vbn_modulo = Van_modulo
     Vcn_modulo = Van_modulo
 elif 'NÃO' in tipo_ligacao_gerador:
