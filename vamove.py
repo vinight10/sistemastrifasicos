@@ -61,7 +61,7 @@ if 'Sim' in zp:
     )
     if 'sim' in zp_igual:
       
-        Zaa = complex(st.text_input('Digite o valor das impedâncias próprias (formato retangular [r+xj], em Ohms \u03A9):', value=0+0j ))
+        Zaa = complex(st.text_input('Digite o valor das impedâncias próprias (formato retangular [r+xj], em Ohms \u03A9):', value=3+5.6j ))
         Zbb = Zaa
         Zcc = Zaa
 
@@ -95,7 +95,7 @@ if 'Sim ' in zm:
     )
     if 'sim ' in zm_igual:
       
-        Zab = complex(st.text_input('Digite o valor das impedâncias mútuas (formato retangular [r+xj], em Ohms \u03A9):', value=0+0j ))
+        Zab = complex(st.text_input('Digite o valor das impedâncias mútuas (formato retangular [r+xj], em Ohms \u03A9):', value=0+2.5j ))
         Zac = Zab
         Zba = Zab
         Zbc = Zab
@@ -125,10 +125,10 @@ elif 'Não ' in zm:
 ""
 'Dados de Impedância de Carga e de Neutro:'
 
-ZA = complex(st.text_input('Digite a impedância da carga ZA (formato retangular, em Ohms \u03A9): ', value=0+0j))
-ZB = complex(st.text_input('Digite a impedância da carga ZB (formato retangular, em Ohms \u03A9): ', value=0+0j))
-ZC = complex(st.text_input('Digite a impedância da carga ZC (formato retangular, em Ohms \u03A9): ', value=0+0j))
-ZN = complex(st.text_input('Digite a impedância de neutro ZN (formato retangular, em Ohms \u03A9): ', value=0+0j))
+ZA = complex(st.text_input('Digite a impedância da carga ZA (formato retangular, em Ohms \u03A9): ', value=90+45j))
+ZB = complex(st.text_input('Digite a impedância da carga ZB (formato retangular, em Ohms \u03A9): ', value=0+50j))
+ZC = complex(st.text_input('Digite a impedância da carga ZC (formato retangular, em Ohms \u03A9): ', value=0+50j))
+ZN = complex(st.text_input('Digite a impedância de neutro ZN (formato retangular, em Ohms \u03A9): ', value=10+0j))
 
 
 # Criação das matrizes de impedância
