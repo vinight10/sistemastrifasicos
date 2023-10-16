@@ -271,7 +271,7 @@ if st.button('Calcular'):
         magnitude = abs(vetor)
         ax.plot([0, angulo], [0, magnitude], color=cor, linewidth=2, label=label)
 
-    # Plotando as tensões
+    # Plotando as correntes
     plot_corrente(IA, [0.8, 0.4, 0], 'IA')
     plot_corrente(IB, [0.4, 0.8, 0], 'IB')
     plot_corrente(IC, [0, 0.6, 0.8], 'IC')
