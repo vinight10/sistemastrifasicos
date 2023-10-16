@@ -98,8 +98,7 @@ def plotar_fasores_com_modulo_e_angulo(fasores):
 
 # Configuração da página Streamlit
 st.title("Representação de Fasores de Tensão")
-st.divider()
-
+''
 # Criação de colunas
 
 col1, col2 = st.columns(2)
