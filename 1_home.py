@@ -14,13 +14,15 @@ st.set_page_config(
 
 
 
-st.title('# Calculadora de Sistemas Trifásicos')
+st.title('#Calculadora de Sistemas Trifásicos')
 ''
-st.subheader('Ligação Y-Y - Com carga qualquer e com impedâncias mútuas de rede')
+st.subheader('Faça cálculos de sistemas trifásicos de forma fácil e interativa')
 ''
 ''
+st.text('Este projeto tem como intuito auxiliar os estudantes de engenharia elétrica nas disciplinas de circuitos elétricos.')
 
-'Dados do Gerador'
+
+' # Dados do Gerador:'
 ''
 ''
 tipo_ligacao_gerador = st.radio(
