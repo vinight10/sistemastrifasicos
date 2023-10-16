@@ -220,9 +220,9 @@ if st.button('Calcular'):
     
     if V_rede [0]> 1e-8:
         "Tensões sobre a Rede - VAA'; VBB'; VCC' (V): "
-        st.write(f"Vbc: {fasor(V_rede[0])}")
-        st.write(f"Vbc: {fasor(V_rede[1])}")
-        st.write(f"Vbc: {fasor(V_rede[2])}")
+        st.write(f"VAA: {fasor(V_rede[0])}")
+        st.write(f"VBB: {fasor(V_rede[1])}")
+        st.write(f"VCC: {fasor(V_rede[2])}")
 
     # Plotagem dos Gráficos
 
