@@ -13,6 +13,7 @@ st.title('Fasores:')
 'Em um sistema trifásico simétrico, o gerador possui mesmo módulo de tensão, variando em 120° suas fases.'
 'Desta forma, é possível identificar todas as fases a partir de um ângulo conhecido e de sua sequência de fase.'
 st.markdown('Existem duas sequências de fases possíveis. Uma é a sequência **DIRETA**, designada como sequência ABC. Também pode ser designada como BCA ou CAB. Apenas desloca-se a letra inicial para o final. Depois repete-se a sequência. A outra é a sequência **INVERSA**, conhecida como sequência ACB. Também pode ser CBA ou BAC. Para obter a sequência **INVERSA**, troca-se a fase B pela fase C e vice-versa. O sentido de giro continua sendo anti-horário.')
+st.markdown("Vale ressaltar ainda que, existe uma relação conhecida entre as tensões de fase e de linha do gerador (desde que o sistema seja simétrico) e da carga (desde que seja equilibrada), dada por \u221A 3 com ângulo de \u00B1 30°, dependendo da sequência de fase. Vamos nos ater a representação da sequência de fase considerando os fasores de um gerador simétrico. A calculadora abaixo retornará os valores dos fasores de tensão de fase e de linha em um sistema Y -Y. Em um sistema triângulo, as tensões de fase e de linha são as mesmas.")
 
 # Função para converter módulo e ângulo em formato retangular
 def polar_to_rect(magnitude, angle):
@@ -38,33 +39,48 @@ def plotar_fasores_com_modulo_e_angulo(fasores):
         ax.plot([0, angulo_rad], [0, magnitude], color=cor, linewidth=2, label=label)
     
 
-    # Plotando os fasores
-    if 'Van' in  angulo_tipo and 'Direta' in seq_fase:
+    # Plotando os fasores para ESTRELA
+    if 'Van' in angulo_tipo and 'Estrela' in ligacao:
         plot_fasor(fasor1, [0.8, 0.4, 0], 'Van')
         plot_fasor(fasor2, [0.4, 0.8, 0], 'Vbn')
         plot_fasor(fasor3, [0, 0.6, 0.8], 'Vcn')
-    elif 'Van' in  angulo_tipo and 'Inversa' in seq_fase:
-        plot_fasor(fasor1, [0.8, 0.4, 0], 'Van')
-        plot_fasor(fasor2, [0.4, 0.8, 0], 'Vbn')
-        plot_fasor(fasor3, [0, 0.6, 0.8], 'Vcn')
+        plot_fasor(fasor4, 'k', 'Vab')
+        plot_fasor(fasor5, 'b','Vbc')
+        plot_fasor(fasor6,'y','Vca')
 
-    if 'Vbn' in  angulo_tipo and 'Direta' in seq_fase:
+    if 'Vbn' in angulo_tipo and 'Estrela' in ligacao:
         plot_fasor(fasor1, [0.8, 0.4, 0], 'Vbn')
         plot_fasor(fasor2, [0.4, 0.8, 0], 'Vcn')
         plot_fasor(fasor3, [0, 0.6, 0.8], 'Van')
-    elif 'Vbn' in  angulo_tipo and 'Inversa' in seq_fase:
-        plot_fasor(fasor1, [0.8, 0.4, 0], 'Vbn')
-        plot_fasor(fasor2, [0.4, 0.8, 0], 'Vcn')
-        plot_fasor(fasor3, [0, 0.6, 0.8], 'Van')
+        plot_fasor(fasor4, 'k', 'Vbc')
+        plot_fasor(fasor5, 'b','Vca')
+        plot_fasor(fasor6,'y','Vab')
 
-    if 'Vcn' in  angulo_tipo and 'Direta' in seq_fase:
+    if 'Vcn' in angulo_tipo and 'Estrela' in ligacao:
         plot_fasor(fasor1, [0.8, 0.4, 0], 'Vcn')
         plot_fasor(fasor2, [0.4, 0.8, 0], 'Van')
         plot_fasor(fasor3, [0, 0.6, 0.8], 'Vbn')
-    elif 'Vcn' in  angulo_tipo and 'Inversa' in seq_fase:
-        plot_fasor(fasor1, [0.8, 0.4, 0], 'Vcn')
-        plot_fasor(fasor2, [0.4, 0.8, 0], 'Van')
-        plot_fasor(fasor3, [0, 0.6, 0.8], 'Vbn')
+        plot_fasor(fasor4, 'k', 'Vca')
+        plot_fasor(fasor5, 'b','Vab')
+        plot_fasor(fasor6,'y','Vbc')
+
+    # Plotando os fasores para TRIÂNGULO
+
+    if 'Vab' in angulo_tipo and 'Triângulo' in ligacao:
+        plot_fasor(fasor1, [0.8, 0.4, 0], 'Vab')
+        plot_fasor(fasor2, [0.4, 0.8, 0], 'Vbc')
+        plot_fasor(fasor3, [0, 0.6, 0.8], 'Vca')
+
+    if 'Vbc' in angulo_tipo and 'Triângulo' in ligacao:
+        plot_fasor(fasor1, [0.8, 0.4, 0], 'Vbc')
+        plot_fasor(fasor2, [0.4, 0.8, 0], 'Vca')
+        plot_fasor(fasor3, [0, 0.6, 0.8], 'Vab')
+
+    if 'Vca' in angulo_tipo and 'Triângulo' in ligacao:
+        plot_fasor(fasor1, [0.8, 0.4, 0], 'Vca')
+        plot_fasor(fasor2, [0.4, 0.8, 0], 'Vab')
+        plot_fasor(fasor3, [0, 0.6, 0.8], 'Vbc')
+
 
 
     # Definindo o título
@@ -82,8 +98,17 @@ def plotar_fasores_com_modulo_e_angulo(fasores):
 # Configuração da página Streamlit
 st.title("Representação de Fasores de Tensão")
 
+# Criação de colunas
+
+col1, col2 = st.columns(2)
+
 # Opção para escolher sequência de fase
-seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
+with col1:
+    seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
+
+# Opção para escolher tipo de ligação
+with col2:
+    ligacao = st.radio("Tipo de Ligação: ", ('Estrela','Triângulo'))
 
 # Entrada para o módulo do fasor
 modulo = st.number_input("Módulo do Fasor:")
@@ -92,10 +117,14 @@ modulo = st.number_input("Módulo do Fasor:")
 angulo_inicial = st.number_input("Ângulo Inicial (graus):")
 
 # Selectbox para selecionar o tipo de tensão
-angulo_tipo = st.selectbox("Ângulo pertence a:", ("Van", "Vbn", "Vcn"))
-
+if 'Estrela' in ligacao:
+    angulo_tipo = st.selectbox("Ângulo pertence a:", ("Van", "Vbn", "Vcn"))
+elif 'Triângulo' in ligacao:
+    angulo_tipo = st.selectbox("Ângulo pertence a:", ("Vab", "Vbc", "Vca"))
 # Botão para plotar os fasores
 if st.button("Plotar Fasores"):
+
+    # Definindo tensões de fase -  Y - Y
 
     if 'Van' in  angulo_tipo and 'Direta' in seq_fase:
         fasor1 = Van = [modulo,(angulo_inicial)]
@@ -124,28 +153,119 @@ if st.button("Plotar Fasores"):
         fasor2 = Van = [modulo,(angulo_inicial+120)]
         fasor3 = Vbn = [modulo,(angulo_inicial-120)]
 
-    fasores = [Van, Vbn, Vcn]
+    # Definindo tensões de linha -Y -Y 
+
+    if 'Van' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor4 = Vab = [modulo*math.sqrt(3),(angulo_inicial+30)]
+        fasor5 = Vbc = [modulo*math.sqrt(3),(angulo_inicial-90)]
+        fasor6 = Vca = [modulo*math.sqrt(3),(angulo_inicial+150)]
+    elif 'Van' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor4 = Vab = [modulo*math.sqrt(3),(angulo_inicial-30)]
+        fasor5 = Vbc = [modulo*math.sqrt(3),(angulo_inicial+90)]
+        fasor6 = Vca = [modulo*math.sqrt(3),(angulo_inicial-150)]
+
+    if 'Vbn' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor4 = Vbc = [modulo*math.sqrt(3),(angulo_inicial+30)]
+        fasor5 = Vca = [modulo*math.sqrt(3),(angulo_inicial-90)]
+        fasor6 = Vab = [modulo*math.sqrt(3),(angulo_inicial+150)]
+    elif 'Vbn' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor4 = Vbc = [modulo*math.sqrt(3),(angulo_inicial-30)]
+        fasor5 = Vca = [modulo*math.sqrt(3),(angulo_inicial+90)]
+        fasor6 = Vab = [modulo*math.sqrt(3),(angulo_inicial-150)]
+
+    if 'Vcn' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor4 = Vca = [modulo*math.sqrt(3),(angulo_inicial+30)]
+        fasor5 = Vab = [modulo*math.sqrt(3),(angulo_inicial-90)]
+        fasor6 = Vbc = [modulo*math.sqrt(3),(angulo_inicial+150)]
+    elif 'Vcn' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor4 = Vca = [modulo*math.sqrt(3),(angulo_inicial-30)]
+        fasor5 = Vab = [modulo*math.sqrt(3),(angulo_inicial+90)]
+        fasor6 = Vbc = [modulo*math.sqrt(3),(angulo_inicial-150)]
+
+    # Definindo tensões de linha -Triângulo
+
+    if 'Vab' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor1 = Van = [modulo,(angulo_inicial)]
+        fasor2 = Vbn = [modulo,(angulo_inicial-120)]
+        fasor3 = Vcn = [modulo,(angulo_inicial+120)]
+    elif 'Vab' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor1 = Van = [modulo,(angulo_inicial)]
+        fasor2 = Vbn = [modulo,(angulo_inicial+120)]
+        fasor3 = Vcn = [modulo,(angulo_inicial-120)]
+
+    if 'Vbc' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor1 = Vbn = [modulo,(angulo_inicial)]
+        fasor2 = Vcn = [modulo,(angulo_inicial-120)]
+        fasor3 = Van = [modulo,(angulo_inicial+120)]
+    elif 'Vbc' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor1 = Vbn = [modulo,(angulo_inicial)]
+        fasor2 = Vcn = [modulo,(angulo_inicial+120)]
+        fasor3 = Van = [modulo,(angulo_inicial-120)]
+
+    if 'Vca' in  angulo_tipo and 'Direta' in seq_fase:
+        fasor1 = Vcn = [modulo,(angulo_inicial)]
+        fasor2 = Van = [modulo,(angulo_inicial-120)]
+        fasor3 = Vbn = [modulo,(angulo_inicial+120)]
+    elif 'Vca' in  angulo_tipo and 'Inversa' in seq_fase:
+        fasor1 = Vcn = [modulo,(angulo_inicial)]
+        fasor2 = Van = [modulo,(angulo_inicial+120)]
+        fasor3 = Vbn = [modulo,(angulo_inicial-120)]
+
+    # Definindo dicionario de fasores comforme seleção
+    
+    if 'Estrela' in ligacao:
+        fasores = [fasor1, fasor2, fasor3, fasor4, fasor5, fasor6]
+    elif 'Triângulo' in ligacao:
+        fasores = [fasor1, fasor2, fasor3]
+   
 
     
-    if 'Van' in  angulo_tipo:
+    if 'Van' in angulo_tipo and 'Estrela' in ligacao:
         fasores_dict = {
             'Van': fasor1,
             'Vbn': fasor2,
-            'Vcn': fasor3
+            'Vcn': fasor3,
+            'Vab': fasor4,
+            'Vbc': fasor5,
+            'Vca': fasor6
         }
-    elif 'Vbn' in  angulo_tipo:
+    elif 'Vbn' in angulo_tipo and 'Estrela' in ligacao:
         fasores_dict = {
             'Vbn': fasor1,
             'Vcn': fasor2,
-            'Van': fasor3
+            'Van': fasor3,
+            'Vbc': fasor4,
+            'Vca': fasor5,
+            'Vab': fasor6
         }
-    elif 'Vcn' in angulo_tipo:
+    elif 'Vcn' in angulo_tipo and 'Estrela' in ligacao:
         fasores_dict = {
             'Vcn': fasor1,
             'Van': fasor2,
-            'Vbn': fasor3
+            'Vbn': fasor3,
+            'Vca': fasor4,
+            'Vab': fasor5,
+            'Vbc': fasor6
         }
     
+    if 'Vab' in angulo_tipo and 'Triângulo' in ligacao:
+        fasores_dict = {
+            'Vab': fasor1,
+            'Vbc': fasor2,
+            'Vca': fasor3,       
+        }
+    elif 'Vbc' in angulo_tipo and 'Triângulo' in ligacao:
+        fasores_dict = {
+            'Vbc': fasor1,
+            'Vca': fasor2,
+            'Vab': fasor3,        
+        }
+    elif 'Vca' in angulo_tipo and 'Triângulo' in ligacao:
+        fasores_dict = {
+            'Vca': fasor1,
+            'Vab': fasor2,
+            'Vbc': fasor3
+        }
 
     plotar_fasores_com_modulo_e_angulo(fasores)
 
