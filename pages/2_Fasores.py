@@ -113,7 +113,7 @@ with col2:
     ligacao = st.radio("Tipo de Ligação: ", ('Estrela','Triângulo'))
 
 # Entrada para o módulo do fasor
-modulo = st.number_input("Módulo do Fasor:")
+modulo = st.number_input("Módulo do Fasor (V):")
 
 # Entrada para o ângulo inicial em graus
 angulo_inicial = st.number_input("Ângulo Inicial (graus):")
@@ -273,4 +273,4 @@ if st.button("Plotar Fasores"):
 
     for nome, fasor in fasores_dict.items():
         modulo, angulo = fasor
-        st.write(f"{nome}: Módulo = {modulo}, Ângulo = {angulo} graus")
+        st.write(f"{nome}: Módulo = {modulo} V, Ângulo = {angulo}°")
