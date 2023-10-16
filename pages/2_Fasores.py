@@ -5,12 +5,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+st.header('Calculadora de Sistemas Trifásicos', divider='rainbow')
 st.title('Fasores:')
 
 'O fasor é um número complexo, na forma polar, que representa a amplitude e a fase de uma senóide.'
 'Os fasores são uma maneira mais simples de se analisar circuitos alimentados por fontes senoidais (circuitos CA).'
 'O que diferencia as fases de um sistema trifásico é seu ângulo de nascimento.'
-'Em um sistema trifásico simétrico, o gerador possui mesmo módulo de tensão, variando em 120° suas fases.'
+'Em um sistema trifásico simétrico, o gerador possui mesmo módulo de tensão, variando em \u00B1 120° suas fases.'
 'Desta forma, é possível identificar todas as fases a partir de um ângulo conhecido e de sua sequência de fase.'
 st.markdown('Existem duas sequências de fases possíveis. Uma é a sequência **DIRETA**, designada como sequência ABC. Também pode ser designada como BCA ou CAB. Apenas desloca-se a letra inicial para o final. Depois repete-se a sequência. A outra é a sequência **INVERSA**, conhecida como sequência ACB. Também pode ser CBA ou BAC. Para obter a sequência **INVERSA**, troca-se a fase B pela fase C e vice-versa. O sentido de giro continua sendo anti-horário.')
 st.markdown("Vale ressaltar ainda que, existe uma relação conhecida entre as tensões de fase e de linha do gerador (desde que o sistema seja simétrico) e da carga (desde que seja equilibrada), dada por \u221A 3 com ângulo de \u00B1 30°, dependendo da sequência de fase. Vamos nos ater a representação da sequência de fase considerando os fasores de um gerador simétrico. A calculadora abaixo retornará os valores dos fasores de tensão de fase e de linha em um sistema Y -Y. Em um sistema triângulo, as tensões de fase e de linha são as mesmas.")
@@ -97,6 +98,7 @@ def plotar_fasores_com_modulo_e_angulo(fasores):
 
 # Configuração da página Streamlit
 st.title("Representação de Fasores de Tensão")
+st.divider()
 
 # Criação de colunas
 

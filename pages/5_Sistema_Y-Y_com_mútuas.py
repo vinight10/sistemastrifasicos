@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from PIL import Image
 
-st.title('Calculadora de Sistemas Trifásicos')
-''
+st.header('Calculadora de Sistemas Trifásicos', divider='rainbow')
 st.subheader('Ligação Y-Y - Com carga qualquer e com impedâncias mútuas de rede')
 ''
 ''
