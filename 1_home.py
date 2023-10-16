@@ -12,7 +12,7 @@ st.set_page_config(
     layout='wide'
 )
 
-st.header('Calculadora de Sistemas Trifásicos')
+st.header('Calculadora de Sistemas Trifásicos', divider='rainbow')
 ''
 st.subheader('Faça cálculos de sistemas trifásicos de forma fácil e interativa')
 ''
