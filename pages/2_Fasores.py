@@ -126,11 +126,26 @@ if st.button("Plotar Fasores"):
 
     fasores = [Van, Vbn, Vcn]
 
-    fasores_dict = {
-    'Van': fasor1,
-    'Vbn': fasor2,
-    'Vcn': fasor3
-}
+    
+    if 'Van' in  angulo_tipo:
+        fasores_dict = {
+            'Van': fasor1,
+            'Vbn': fasor2,
+            'Vcn': fasor3
+        }
+    elif 'Vbn' in  angulo_tipo:
+        fasores_dict = {
+            'Vbn': fasor1,
+            'Vcn': fasor2,
+            'Van': fasor3
+        }
+    elif 'Vcn' in angulo_tipo:
+        fasores_dict = {
+            'Vcn': fasor1,
+            'Van': fasor2,
+            'Vbn': fasor3
+        }
+    
 
     plotar_fasores_com_modulo_e_angulo(fasores)
 
