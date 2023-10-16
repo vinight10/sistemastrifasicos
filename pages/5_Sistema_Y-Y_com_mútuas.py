@@ -13,7 +13,7 @@ st.subheader('Ligação Y-Y - Com carga qualquer e com impedâncias mútuas de r
 image = Image.open('images/y-y.png')
 st.image(image, caption='Sistema Trifásico - Fonte: Introdução a sistemas elétricos de potência. 1. ed. São Paulo: Blucher, 2000. E-book. Disponível em: https://plataforma.bvirtual.com.br. Acesso em: 13 out. 2023.')
 
-'Dados do Gerador'
+'Dados do Gerador:'
 ''
 ''
 tipo_ligacao_gerador = st.radio(
