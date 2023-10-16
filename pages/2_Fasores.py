@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-st.header('Calculadora de Sistemas Trifásicos', divider='rainbow')
+st.header('Calculadora de Sistemas Trifásicos')
 st.title('Fasores:')
 
 'O fasor é um número complexo, na forma polar, que representa a amplitude e a fase de uma senóide.'
