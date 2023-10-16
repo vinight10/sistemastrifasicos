@@ -124,6 +124,16 @@ if st.button("Plotar Fasores"):
         fasor2 = Van = [modulo,(angulo_inicial+120)]
         fasor3 = Vbn = [modulo,(angulo_inicial-120)]
 
-    fasores = [fasor1, fasor2, fasor3]
+    fasores = [Van, Vbn, Vcn]
+
+    fasores_dict = {
+    'Van': fasor1,
+    'Vbn': fasor2,
+    'Vcn': fasor3
+}
 
     plotar_fasores_com_modulo_e_angulo(fasores)
+
+    for nome, fasor in fasores_dict.items():
+        modulo, angulo = fasor
+        st.write(f"{nome}: Módulo = {modulo}, Ângulo = {angulo} graus")
