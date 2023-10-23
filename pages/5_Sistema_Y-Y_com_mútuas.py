@@ -191,7 +191,7 @@ if st.button('Calcular'):
 
     'Correntes de Fase - IA; IB; IC (A): '
 
-    st.write('------------ MÓDULO    -----------------     ÂNGULO ')
+    st.write('------------ MÓDULO (A)    -----------------     ÂNGULO °')
     st.write(f"IA: {fasor(IA)}")
     st.write(f"IB: {fasor(IB)}")
     st.write(f"IC: {fasor(IC)}")
@@ -203,12 +203,14 @@ if st.button('Calcular'):
     ''
     "Tensões de Fase na Carga - VA'N; VB'N; VC'N (V): "
     ''
+    st.write('------------ MÓDULO (V)  -----------------     ÂNGULO ° ')
     st.write(f"VA'N: {fasor(VAN_carga)}")
     st.write(f"VB'N: {fasor(VBN_carga)}")
     st.write(f"VC'N {fasor(VCN_carga)}")
     ''
     "Tensões de linha na Carga - VA'B'; VB'C'; VC'A' (V): "
     ''
+    st.write('------------ MÓDULO (V)   -----------------     ÂNGULO °')
     st.write(f"VA'B': {fasor(VAB_carga)}")
     st.write(f"VB'C': {fasor(VBC_carga)}")
     st.write(f"VC'A': {fasor(VCA_carga)}")
@@ -220,6 +222,7 @@ if st.button('Calcular'):
     
     if V_rede [0]> 1e-8:
         "Tensões sobre a Rede - VAA'; VBB'; VCC' (V): "
+        st.write('------------ MÓDULO (V)   -----------------     ÂNGULO °')
         st.write(f"VAA: {fasor(V_rede[0])}")
         st.write(f"VBB: {fasor(V_rede[1])}")
         st.write(f"VCC: {fasor(V_rede[2])}")
