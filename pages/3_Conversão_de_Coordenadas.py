@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 # Título do aplicativo
+st.header('Calculadora de Sistemas Trifásicos')
 st.title("Conversor de Coordenadas")
 ''
 image = Image.open('images/coord.png')
