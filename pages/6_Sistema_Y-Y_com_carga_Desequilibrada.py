@@ -14,7 +14,8 @@ st.subheader('Ligação Y-Y com carga **desequilibrada**')
 image = Image.open('images/y-y-des.png')
 st.image(image, caption='Sistema Trifásico Desequilibrado - Fonte: Introdução a sistemas elétricos de potência. 1. ed. São Paulo: Blucher, 2000. E-book. Disponível em: https://plataforma.bvirtual.com.br. Acesso em: 13 out. 2023.')
 ''
-st.markdown("Os sistemas trifásicos simétricos e equilibrados com carga desequilibrada são formados por geradores com mesma amplitude e defasagem de 120º, com linhas não possuindo impedâncias mútuas ou com mútuas iguais entre si e que alimentam cargas desequilibradas, onde as impedâncias que compõem a carga têm valores distintos (OLIVEIRA, et al. 2000).")
+st.markdown("Os sistemas trifásicos simétricos e equilibrados com carga desequilibrada são formados por geradores com mesma amplitude e defasagem de 120º, com linhas não possuindo impedâncias mútuas ou com mútuas iguais entre si e que alimentam cargas desequilibradas, onde as impedâncias que compõem a carga têm valores distintos (OLIVEIRA, et al. 2000). Neste modelo, as mútuas são desprezadas e a impedância da rede é igual.")
+
 st.markdown("Dados do Gerador (caso só possua um ângulo utilize a aba fasores para encontrar os demais):")
 ''
 ''
