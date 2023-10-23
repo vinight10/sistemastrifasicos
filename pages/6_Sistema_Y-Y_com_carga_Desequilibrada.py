@@ -15,7 +15,6 @@ image = Image.open('images/y-y-des.png')
 st.image(image, caption='Sistema Trifásico Desequilibrado - Fonte: Introdução a sistemas elétricos de potência. 1. ed. São Paulo: Blucher, 2000. E-book. Disponível em: https://plataforma.bvirtual.com.br. Acesso em: 13 out. 2023.')
 ''
 st.markdown("Dados do Gerador (caso só possua um ângulo utilize a aba fasores para encontrar os demais):")
-st.link_button("Fasores", "https://sistemastrifasicos.streamlit.app/Fasores")
 ''
 ''
 Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ', value = 220.00)
