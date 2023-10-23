@@ -8,7 +8,7 @@ from PIL import Image
 
 
 st.header('Calculadora de Sistemas Trifásicos')
-st.subheader('Ligação Y-Y - Desequilibrado')
+st.subheader('Ligação Y-Y com carga **desequilibrada**')
 ''
 ''
 image = Image.open('images/y-y-des.png')
