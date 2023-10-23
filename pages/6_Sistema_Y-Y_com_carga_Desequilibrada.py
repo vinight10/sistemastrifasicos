@@ -17,7 +17,7 @@ st.image(image, caption='Sistema Trifásico Desequilibrado - Fonte: Introdução
 st.markdown("Os sistemas trifásicos simétricos e equilibrados com carga desequilibrada são formados por geradores com mesma amplitude e defasagem de 120º, com linhas não possuindo impedâncias mútuas ou com mútuas iguais entre si e que alimentam cargas desequilibradas, onde as impedâncias que compõem a carga têm valores distintos (OLIVEIRA, et al. 2000). Neste modelo, as mútuas são desprezadas e a impedância da rede é igual.")
 ''
 ''
-st.markdown("Dados do Gerador (caso só possua um ângulo utilize a aba **fasores** para encontrar os demais):")
+st.markdown("Dados do Gerador (caso só possua um ângulo utilize a aba **fasores** no menu para encontrar os demais):")
 ''
 ''
 Van_modulo = st.number_input('Digite o módulo da tensão de fase(V): ', value = 220.00)
