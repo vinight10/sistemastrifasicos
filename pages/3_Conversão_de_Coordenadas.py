@@ -1,10 +1,16 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 
 # Título do aplicativo
 st.title("Conversor de Coordenadas")
 ''
+image = Image.open('images/coord.png')
+st.image(image, caption='Coordenadas no plano cartesiano - Fonte: Brasil Escola. Disponível em: https://brasilescola.uol.com.br/. Acesso em: 13 out. 2023.')
+''
+st.markdown("Conhecido como plano complexo ou plano de Argand-Gauss, ele permite a representação na forma geométrica de um número complexo, esse plano é uma adaptação no plano cartesiano para representar números complexos. O eixo horizontal é conhecido como eixo da parte real Re(z), e o eixo vertical é conhecido como eixo da parte imaginária Im(z). Então o número complexo representado por a + bi gera os pontos no plano complexo formado pelo par ordenado (a, b).")
+
 "Lembre-se: As informações devem ser dadas em graus, não radianos."
 # Opção para selecionar o tipo de coordenada
 ''
@@ -15,13 +21,13 @@ x, y, modulo, angulo = 0, 0, 0, 0
 
 if opcao == "Polar para Retangular":
     # Entrada para coordenadas polares
-    modulo = st.number_input("Módulo (r):")
-    angulo = st.number_input("Ângulo (graus):")
+    modulo = st.number_input("Módulo (Z):")
+    angulo = st.number_input("Ângulo \u03b8 (graus):")
 
 else:
     # Entrada para coordenadas retangulares
-    x = st.number_input("Parte Real (x):")
-    y = st.number_input("Parte Imaginária (y):")
+    x = st.number_input("Parte Real (a):")
+    y = st.number_input("Parte Imaginária (b):")
 
 # Botão para converter e plotar o gráfico
 if st.button("Converter"):
@@ -35,8 +41,8 @@ if st.button("Converter"):
         angulo = np.degrees(np.arctan2(y, x))
 
     # Exibir coordenadas retangulares
-    st.write(f"Coordenadas Retangulares (x, y) : ({x}, {y})")
-    st.write(f"Coordenadas Polares (Módulo, Ângulo °) : {modulo}, {angulo}")
+    st.write(f"Coordenadas Retangulares (a, b) : ({x}, {y})")
+    st.write(f"Coordenadas Polares (Módulo, Ângulo \u03b8 °) : {modulo}, {angulo}")
 
     # Plotar gráfico semelhante ao modelo do site
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -50,7 +56,7 @@ if st.button("Converter"):
     
     ax.annotate(f"{x:.2f} + {y:.2f}j", (x, y), textcoords="offset points", xytext=(10,10), ha='center')
     ax.annotate(f"Módulo: {modulo:.2f}", (x, y), textcoords="offset points", xytext=(10,-20), ha='center')
-    ax.annotate(f"Fase: {angulo:.2f}°", (x, y), textcoords="offset points", xytext=(10,-40), ha='center')
+    ax.annotate(f"Fase (\u03b8): {angulo:.2f}°", (x, y), textcoords="offset points", xytext=(10,-40), ha='center')
     
     ax.set_xlim(min(0, x) - 1, max(0, x) + 1)
     ax.set_ylim(min(0, y) - 1, max(0, y) + 1)
