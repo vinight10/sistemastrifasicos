@@ -11,7 +11,10 @@ st.subheader('Ligação Y-Y - Com carga qualquer e com impedâncias mútuas de r
 ''
 image = Image.open('images/y-y.png')
 st.image(image, caption='Sistema Trifásico - Fonte: Introdução a sistemas elétricos de potência. 1. ed. São Paulo: Blucher, 2000. E-book. Disponível em: https://plataforma.bvirtual.com.br. Acesso em: 13 out. 2023.')
-
+''
+st.markdown("A impedância mútua entre linhas é um conceito refere-se à medida da influência mútua que as linhas de transmissão ou condutores adjacentes têm um sobre o outro. Em essência, a impedância mútua é descrita como a corrente que flui em uma linha afeta a tensão na linha adjacente e vice-versa. A impedância mútua é frequentemente usada para avaliar o acoplamento eletromagnético entre condutores adjacentes em circuitos elétricos. Ela é mais relevante em situações onde a proximidade física entre os condutores é significativa, como em circuitos de alta frequência, cabos de transmissão e linhas de transmissão de sinais.")
+''
+''
 st.markdown("Dados do Gerador (caso só possua um ângulo utilize a aba **fasores** no menu para encontrar os demais):")
 
 ''

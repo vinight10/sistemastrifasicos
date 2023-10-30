@@ -22,4 +22,4 @@ st.subheader('Faça cálculos de sistemas trifásicos de forma fácil e interati
 'Projeto desenvolvido como trabalho de conclusão de curso de engenharia elétrica na Uniftec - Caxias do Sul'
 ''
 'Desenvolvido por: Vinicius Martins Fioreze - Email: vinicius.fioreze@acad.ftec.com.br'
-'Professor orientador: Esp. Jocemar Muller Boeira '
+'Professor orientador: Esp. Jocemar Muller Boeira - '
