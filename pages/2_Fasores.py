@@ -6,7 +6,7 @@ import numpy as np
 
 
 st.header('Calculadora de Sistemas Trifásicos')
-st.title('Fasores:')
+st.subheader('Fasores:')
 
 'O fasor é um número complexo, na forma polar, que representa a amplitude e a fase de uma senóide.'
 'Os fasores são uma maneira mais simples de se analisar circuitos alimentados por fontes senoidais (circuitos CA).'

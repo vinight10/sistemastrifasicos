@@ -38,7 +38,7 @@ st.markdown('Dados do Gerador:')
 ''
 ''
 Vgerador_modulo = st.number_input('Digite o módulo da tensão de linha do gerador conhecida (V): ', value = 220.00)
-gerador_angulo = st.number_input('Digite o ângulo da tensão de linha do gerador conhecida (V): ', value = 0.00)
+gerador_angulo = float (st.text_input('Digite o ângulo da tensão de linha do gerador conhecida (V): ', value = 0.00))
 angulo_tipo = st.selectbox("Ângulo pertence a:", ("VAB", "VBC", "VCA"))
 seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
 
@@ -53,31 +53,52 @@ Z = (Z_carga)/3
 
 
 if 'VAB' in angulo_tipo and 'Direta' in seq_fase:
-    VAB=polar_to_rect(Vgerador_modulo,gerador_angulo)
-    VBC=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
-    VCA=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
+    VAB = polar_to_rect(Vgerador_modulo, gerador_angulo)
+    VBC = polar_to_rect(Vgerador_modulo, (gerador_angulo-120))
+    VCA = polar_to_rect(Vgerador_modulo, (gerador_angulo+120))
+    vab = [Vgerador_modulo, gerador_angulo]
+    vbc = [Vgerador_modulo, (gerador_angulo - 120)]
+    vca = [Vgerador_modulo, (gerador_angulo + 120)]
 elif 'VAB' in angulo_tipo and 'Inversa' in seq_fase:
-    VAB=polar_to_rect(Vgerador_modulo,gerador_angulo)
-    VBC=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
-    VCA=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
+    VAB = polar_to_rect(Vgerador_modulo, (gerador_angulo))
+    VBC = polar_to_rect(Vgerador_modulo, (gerador_angulo+120))
+    VCA = polar_to_rect(Vgerador_modulo, (gerador_angulo-120))
+    vab = (Vgerador_modulo, gerador_angulo)
+    vbc = (Vgerador_modulo, (gerador_angulo + 120))
+    vca = (Vgerador_modulo, (gerador_angulo - 120))
 
 if 'VBC' in angulo_tipo and 'Direta' in seq_fase:
     VBC=polar_to_rect(Vgerador_modulo,gerador_angulo)
     VCA=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
     VAB=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
+    vbc = (Vgerador_modulo, gerador_angulo)
+    vca = (Vgerador_modulo, (gerador_angulo - 120))
+    vab = (Vgerador_modulo, (gerador_angulo + 120))
+    
 elif 'VBC' in angulo_tipo and 'Inversa' in seq_fase:
     VBC=polar_to_rect(Vgerador_modulo,gerador_angulo)
     VCA=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
     VAB=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
+    vbc = (Vgerador_modulo, gerador_angulo)
+    vca = (Vgerador_modulo, (gerador_angulo + 120))
+    vab = (Vgerador_modulo, (gerador_angulo - 120))
+
 
 if 'VCA' in angulo_tipo and 'Direta' in seq_fase:
     VCA=polar_to_rect(Vgerador_modulo,gerador_angulo)
     VAB=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
     VBC=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
+    vca = (Vgerador_modulo, gerador_angulo)
+    vab = (Vgerador_modulo, (gerador_angulo - 120))
+    vbc = (Vgerador_modulo, (gerador_angulo + 120))
+
 elif 'VCA' in angulo_tipo and 'Inversa' in seq_fase:
     VCA=polar_to_rect(Vgerador_modulo,gerador_angulo)
     VAB=polar_to_rect(Vgerador_modulo,(gerador_angulo+120))
     VBC=polar_to_rect(Vgerador_modulo,(gerador_angulo-120))
+    vca = (Vgerador_modulo, gerador_angulo)
+    vab = (Vgerador_modulo, (gerador_angulo + 120))
+    vbc = (Vgerador_modulo, (gerador_angulo - 120))
 
 t_raiz_direta = polar_to_rect(math.sqrt(3),30)
 t_raiz_inversa = polar_to_rect(math.sqrt(3),-30)
@@ -119,9 +140,9 @@ if st.button('Calcular'):
     ''
     'Tensões no Gerador: '
     st.write('---- MÓDULO (V) -----------------   ÂNGULO °')
-    st.write(f"VAB: {fasor(VAB)}")
-    st.write(f"VBC: {fasor(VBC)}")
-    st.write(f"VCA: {fasor(VCA)}")
+    st.write(f"VAB: {(vab)}")
+    st.write(f"VBC: {(vbc)}")
+    st.write(f"VCA: {(vca)}")
     ''
     ''
     'Correntes de Linha: '

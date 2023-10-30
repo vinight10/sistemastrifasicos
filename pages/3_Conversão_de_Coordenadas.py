@@ -5,7 +5,7 @@ from PIL import Image
 
 # Título do aplicativo
 st.header('Calculadora de Sistemas Trifásicos')
-st.title("Conversor de Coordenadas")
+st.subheader("Conversor de Coordenadas")
 ''
 image = Image.open('images/coord.png')
 st.image(image, caption='Coordenadas no plano cartesiano - Fonte: Brasil Escola. Disponível em: https://brasilescola.uol.com.br/. Acesso em: 13 out. 2023.')
