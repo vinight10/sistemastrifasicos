@@ -35,7 +35,7 @@ st.markdown('Dados do Gerador:')
 ''
 ''
 Vgerador_modulo = st.number_input('Digite o módulo da tensão de fase do gerador conhecida (V): ', value = 220.00)
-gerador_angulo = st.number_input('Digite o ângulo da tensão de fase do gerador conhecida (V): ', value = 0.00)
+gerador_angulo = st.number_input('Digite o ângulo da tensão de fase do gerador conhecida (°): ', value = 0.00)
 angulo_tipo = st.selectbox("Ângulo pertence a:", ("VAN", "VBN", "VCN"))
 seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
 
@@ -44,6 +44,7 @@ seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
     # Pede ao usuário os dados das impedâncias
 
 st.markdown('Dados das impedâncias:')
+
 Z_linha = complex(st.text_input("Digite o valor das impedâncias da rede (ZAA', ZBB', ZCC'), desprezando as mútuas (formato retangular [r+xj], em Ohms \u03A9):", value=0.2+0.5j ))
 Z_carga = complex(st.text_input("Digite o valor das impedâncias da carga (ZA'B', ZB'C', ZC'A' em formato retangular [r+xj], em Ohms \u03A9):", value=3+4j ))
 Z = Z_carga + Z_linha
@@ -114,6 +115,12 @@ if st.button('Calcular'):
         V_A_B = (VAN*t_raiz_direta)
         V_B_C = (VBN*t_raiz_direta)
         V_C_A = (VCN*t_raiz_direta)
+        VAA = VAN - VAN_
+        VBB = VBN - VBN_
+        VCC = VCN - VCN_
+        VAA_ = VAA*t_raiz_direta
+        VBB_ = VBB*t_raiz_direta
+        VCC_ = VCC*t_raiz_direta
 
     elif 'Inversa' in seq_fase:
         IA = (VAN)/(Z)
@@ -125,6 +132,12 @@ if st.button('Calcular'):
         V_A_B = (VAN*t_raiz_inversa)
         V_B_C = (VBN*t_raiz_inversa)
         V_C_A = (VCN*t_raiz_inversa)
+        VAA = VAN - VAN_
+        VBB = VBN - VBN_
+        VCC = VCN - VCN_
+        VAA_ = VAA*t_raiz_inversa
+        VBB_ = VBB*t_raiz_inversa
+        VCC_ = VCC*t_raiz_inversa
 
     ''
     'Tensões no Gerador: '
@@ -155,6 +168,20 @@ if st.button('Calcular'):
     st.write(f"VC'A': {fasor(V_C_A)}")
     ''
     ''
+    'Quedas de tensão na rede: '
+    ''
+    'Tensão de fase: '
+    st.write('------------ MÓDULO (V)   -----------------     ÂNGULO °')
+    st.write(f"VAA': {fasor(VAA)}")
+    st.write(f"VBB': {fasor(VBB)}")
+    st.write(f"VCC': {fasor(VCC)}")
+    ''
+    'Tensões de linha: '
+    st.write('------------ MÓDULO (V)   -----------------     ÂNGULO °')
+    st.write(f"VAB - VA'B': {fasor(VAA_)}")
+    st.write(f"VBC - VB'C': {fasor(VBB_)}")
+    st.write(f"VCA - VC'A': {fasor(VCC_)}")
+
 
     # Plotagem dos Gráficos
 

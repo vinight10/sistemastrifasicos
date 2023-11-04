@@ -164,10 +164,12 @@ if st.button('Calcular'):
     VCN = Vcn
 
     # Cálculo das correntes de fase e de linha na carga
+
     I_carga = np.linalg.inv(Z_total).dot(Vfasegerador)
     I_neutro = I_carga[0] + I_carga[1] + I_carga[2]
 
     # Determinação das Correntes
+    
     IA = I_carga[0]
     IB = I_carga[1]
     IC = I_carga[2]

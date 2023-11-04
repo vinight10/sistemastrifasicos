@@ -14,13 +14,17 @@ st.subheader('Fasores:')
 'Desta forma, é possível identificar todas as fases a partir de um ângulo conhecido e de sua sequência de fase.'
 st.markdown('Existem duas sequências de fases possíveis. A sequência **DIRETA**, designada como sequência ABC. Também pode ser designada como BCA ou CAB. Apenas desloca-se a letra inicial para o final. Depois repete-se a sequência, fazendo com que o sentido de giro seja **HORÁRIO**. A outra é a sequência **INVERSA**, conhecida como sequência ACB. Também pode ser CBA ou BAC. Para obter a sequência **INVERSA**, troca-se a fase B pela fase C e vice-versa. O sentido de giro continua sendo **ANTI-HORÁRIO**.')
 st.markdown("Vale ressaltar ainda que, existe uma relação conhecida entre as tensões de fase e de linha do gerador (desde que o sistema seja simétrico) e da carga (desde que seja equilibrada), dada por \u221A 3 com ângulo de \u00B1 30°, dependendo da sequência de fase. Vamos nos ater a representação da sequência de fase considerando os fasores de um gerador simétrico. A calculadora abaixo retornará os valores dos fasores de tensão de fase e de linha em um sistema Y -Y. Em um sistema triângulo, as tensões de fase e de linha são as mesmas.")
+
+
 # Função para converter módulo e ângulo em formato retangular
+
 def polar_to_rect(magnitude, angle):
     angle_rad = math.radians(angle)
     rect = cmath.rect(magnitude, angle_rad)
     return rect
 
 # Função para converter de retangular para polar em graus
+
 def fasor(fas):
     fasorial = [abs(fas), math.degrees(cmath.phase(fas))]
     return fasorial
