@@ -132,6 +132,9 @@ if st.button('Calcular'):
         V_A_B = (VAN*t_raiz_inversa)
         V_B_C = (VBN*t_raiz_inversa)
         V_C_A = (VCN*t_raiz_inversa)
+        V_A_B_ = (VAN_*t_raiz_inversa)
+        V_B_C_ = (VBN_*t_raiz_inversa)
+        V_C_A_ = (VCN_*t_raiz_inversa)
         VAA = VAN - VAN_
         VBB = VBN - VBN_
         VCC = VCN - VCN_
@@ -145,6 +148,9 @@ if st.button('Calcular'):
     st.write(f"VAN: {van}")
     st.write(f"VBN: {vbn}")
     st.write(f"VCN: {vcn}")
+    st.write(f"VA'B': {fasor(V_A_B)}")
+    st.write(f"VB'C': {fasor(V_B_C)}")
+    st.write(f"VC'A': {fasor(V_C_A)}")
     ''
     ''
     'Correntes de Fase e Linha: '
@@ -163,9 +169,9 @@ if st.button('Calcular'):
     ''
     'Tensões de linha na carga: '
     st.write('------------ MÓDULO (V)   -----------------     ÂNGULO °')
-    st.write(f"VA'B': {fasor(V_A_B)}")
-    st.write(f"VB'C': {fasor(V_B_C)}")
-    st.write(f"VC'A': {fasor(V_C_A)}")
+    st.write(f"VA'B': {fasor(V_A_B_)}")
+    st.write(f"VB'C': {fasor(V_B_C_)}")
+    st.write(f"VC'A': {fasor(V_C_A_)}")
     ''
     ''
     'Quedas de tensão na rede: '
