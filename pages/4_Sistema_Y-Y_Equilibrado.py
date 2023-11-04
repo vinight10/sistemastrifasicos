@@ -46,7 +46,7 @@ seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
 st.markdown('Dados das impedâncias:')
 
 Z_linha = complex(st.text_input("Digite o valor das impedâncias da rede (ZAA', ZBB', ZCC'), desprezando as mútuas (formato retangular [r+xj], em Ohms \u03A9):", value=0.2+0.5j ))
-Z_carga = complex(st.text_input("Digite o valor das impedâncias da carga (ZA'B', ZB'C', ZC'A' em formato retangular [r+xj], em Ohms \u03A9):", value=3+4j ))
+Z_carga = complex(st.text_input("Digite o valor das impedâncias da carga (ZA'N', ZB'N', ZC'N' em formato retangular [r+xj], em Ohms \u03A9):", value=3+4j ))
 Z = Z_carga + Z_linha
 
 if 'VAN' in angulo_tipo and 'Direta' in seq_fase:
