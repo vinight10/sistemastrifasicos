@@ -148,9 +148,9 @@ if st.button('Calcular'):
     st.write(f"VAN: {van}")
     st.write(f"VBN: {vbn}")
     st.write(f"VCN: {vcn}")
-    st.write(f"VA'B': {fasor(V_A_B)}")
-    st.write(f"VB'C': {fasor(V_B_C)}")
-    st.write(f"VC'A': {fasor(V_C_A)}")
+    st.write(f"VAB: {fasor(V_A_B)}")
+    st.write(f"VBC: {fasor(V_B_C)}")
+    st.write(f"VCA: {fasor(V_C_A)}")
     ''
     ''
     'Correntes de Fase e Linha: '
