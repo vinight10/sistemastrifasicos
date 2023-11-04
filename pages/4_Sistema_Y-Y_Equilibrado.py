@@ -198,7 +198,7 @@ if st.button('Calcular'):
     # Plotando as tensões
     plot_tensao(VAN_, [0.8, 0.4, 0], "VA'N'")
     plot_tensao(VBN_, [0.4, 0.8, 0], "VB'N'")
-    plot_tensao(VCN_, [0, 0.6, 0.8], "'VC'N'")
+    plot_tensao(VCN_, [0, 0.6, 0.8], "VC'N'")
     plot_tensao(V_A_B, [0.6, 0.7, 0], "V A'B'")
     plot_tensao(V_B_C, 'm', "V B'C'")
     plot_tensao(V_C_A, 'k', "V C'A'")
@@ -206,7 +206,7 @@ if st.button('Calcular'):
 
 
     # Definindo o título
-    ax.set_title('Gráfico das Tensões: ')
+    ax.set_title('Gráfico dos fasores de tensão na carga: ')
 
     # Remover os rótulos do raio
     ax.set_yticklabels([])
