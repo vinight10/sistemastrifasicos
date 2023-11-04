@@ -115,6 +115,9 @@ if st.button('Calcular'):
         V_A_B = (VAN*t_raiz_direta)
         V_B_C = (VBN*t_raiz_direta)
         V_C_A = (VCN*t_raiz_direta)
+        V_A_B_ = (VAN_*t_raiz_direta)
+        V_B_C_ = (VBN_*t_raiz_direta)
+        V_C_A_ = (VCN_*t_raiz_direta)
         VAA = VAN - VAN_
         VBB = VBN - VBN_
         VCC = VCN - VCN_
