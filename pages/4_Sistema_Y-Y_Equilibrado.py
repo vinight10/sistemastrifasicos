@@ -239,9 +239,9 @@ if st.button('Calcular'):
         ax.plot([0, angulo], [0, magnitude], color=cor, linewidth=2, label=label)
 
     # Plotando as correntes
-    plot_corrente(IA, [0.8, 0.4, 0], 'IAA')
-    plot_corrente(IB, 'm', "I B'C'")
-    plot_corrente(IC, 'k', "I C'A'")
+    plot_corrente(IA, [0.8, 0.4, 0], 'IA')
+    plot_corrente(IB, 'm', "IB")
+    plot_corrente(IC, 'k', "IC")
     
     
     # Definindo o título
