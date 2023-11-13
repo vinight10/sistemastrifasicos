@@ -38,7 +38,7 @@ st.markdown('Dados do Gerador:')
 ''
 ''
 Vgerador_modulo = st.number_input('Digite o módulo da tensão de linha do gerador conhecida (V): ', value = 220.00)
-gerador_angulo = float (st.text_input('Digite o ângulo da tensão de linha do gerador conhecida (V): ', value = 0.00))
+gerador_angulo = float (st.text_input('Digite o ângulo da tensão de linha do gerador conhecida (°): ', value = 0.00))
 angulo_tipo = st.selectbox("Ângulo pertence a:", ("VAB", "VBC", "VCA"))
 seq_fase = st.radio("Sequência de Fase:", ("Direta", "Inversa"))
 
