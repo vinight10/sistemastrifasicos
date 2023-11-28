@@ -165,9 +165,9 @@ if st.button('Calcular'):
     ''
     'Tensões de fase na carga: '
     st.write('------------ MÓDULO (A)   -----------------     ÂNGULO °')
-    st.write(f"IA'B': {fasor(VAN_)}")
-    st.write(f"IB'C': {fasor(VBN_)}")
-    st.write(f"IC'A': {fasor(VCN_)}")
+    st.write(f"VA'N': {fasor(VAN_)}")
+    st.write(f"VB'N': {fasor(VBN_)}")
+    st.write(f"VC'N': {fasor(VCN_)}")
     ''
     ''
     'Tensões de linha na carga: '
